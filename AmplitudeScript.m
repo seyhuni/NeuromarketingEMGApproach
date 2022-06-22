@@ -8,7 +8,7 @@ EMGData=EMGData.datas;
 EMGData_=EMGData(500:end);
 EMGData_=EMGData_-mean(EMGData_);
 EMGData_=EMGData_/max(EMGData_);
-EMGData_=EMGData_(EMGData_>-1);
+% EMGData_=EMGData_(EMGData_>-1);
 % EMGData_(163000:165000)=0;
 figure
 plot(EMGData_)
@@ -46,7 +46,7 @@ block_duration_datacorrected_last = filtfilt(B, A, double(block_duration_datacor
 %     ylabel('Amplitude')
 %     xlim([1020.231193413892 260567.0467979074])
 %     ylim([-0.0001904646550288437 0.0002626080637102741])
-    % TKEO basic  % Teager–Kaiser energy operator to obtain EMG Bursts
+    % TKEO basic  % Teagerâ€“Kaiser energy operator to obtain EMG Bursts
     for i=2:length(eogF)-1
         eogF(i) = ynew(i)^2 - ynew(i-1)*ynew(i+1);
     end   
@@ -73,7 +73,7 @@ block_duration_datacorrected_last = filtfilt(B, A, double(block_duration_datacor
 %     plot(A8_)
 %     xlabel('Time')
 %     ylabel('Amplitude')
-            rmsSwallows = sqrt(movmean(A8_.^2, 2500));   % Burst Detection using RMS Value Over ‘WinLen’ Samples
+            rmsSwallows = sqrt(movmean(A8_.^2, 2500));   % Burst Detection using RMS Value Over â€˜WinLenâ€™ Samples
     figure(3)
     plot(rmsSwallows)
     button = 1;
